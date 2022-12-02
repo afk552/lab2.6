@@ -13,6 +13,6 @@ if __name__ == '__main__':
 
     dict_items = dictionary.items()
     dictionary_new = {}
-    for key,value in dictionary.items():
+    for key, value in dictionary.items():
         dictionary_new[value] = key
     print("Обратный словарь: ", dictionary_new)
