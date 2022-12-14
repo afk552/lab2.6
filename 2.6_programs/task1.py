@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
-
     school = {
         "1А": 21,
         "1Б": 33,
@@ -13,24 +12,24 @@ if __name__ == '__main__':
     }
 
     for key, value in school.items():
-        print("В классе: {0}: {1} учеников".format(key, value))
+        print(f"В классе: {key}: {value} учеников")
 
     print("\nВ одном из классов изменилось количество учащихся!")
     school['1А'] = 99
     for key, value in school.items():
-        print("В классе: {0}: {1} учеников".format(key, value))
+        print(f"В классе: {key}: {value} учеников")
 
     print("\nВ школе появился новый класс!")
     school.setdefault("11Я", 10)
     for key, value in school.items():
-        print("В классе: {0}: {1} учеников".format(key, value))
+        print(f"В классе: {key}: {value} учеников")
 
     print("\nВ школе был расформирован (удален) один из классов!")
     school.pop("1Б")
     for key, value in school.items():
-        print("В классе: {0}: {1} учеников".format(key, value))
+        print(f"В классе: {key}: {value} учеников")
 
     amount = 0
     for value in school.values():
         amount += value
-    print("\nВсего учеников: {0}".format(amount))
+    print(f"\nВсего учеников: {amount}")
