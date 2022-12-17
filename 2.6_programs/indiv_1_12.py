@@ -31,15 +31,15 @@ if __name__ == '__main__':
         # Вывод списка людей
         elif command == "list":
             # Оформление таблицы
-            line = '---------------------'.format(
+            line = '+-{}-+-{}-+-{}-+-{}-+'.format(
                 '-' * 4,
                 '-' * 30,
-                '-' * 20,
-                '-' * 8
+                '-' * 14,
+                '-' * 19
             )
             print(line)
             print(
-                '| {:^4} | {:^30} | {:^20} | {:^8} |'.format(
+                '| {:^4} | {:^30} | {:^14} | {:^19} |'.format(
                     "№п/п",
                     "Фамилия Имя",
                     "Номер телефона",
@@ -50,7 +50,7 @@ if __name__ == '__main__':
             # Вывод информации по каждому человеку
             for nmbr, person in enumerate(people, 1):
                 print(
-                    '| {:>4} | {:<30} | {:<20} | {:>8} |'.format(
+                    '| {:>4} | {:<30} | {:<14} | {:>19} |'.format(
                         nmbr,
                         person.get('name', ''),
                         person.get('pnumber', ''),
@@ -62,12 +62,18 @@ if __name__ == '__main__':
         # Выборка людей по введенному месяцу
         elif command.startswith('select '):
             parts = command.split(' ', maxsplit=1)
+            printed_month_correct = ""
             printed_month = parts[1]
+            if len(printed_month) == 1:
+                printed_month_correct += "0"
+                printed_month_correct += printed_month
+            else:
+                printed_month_correct = printed_month
             count = 0
             for person in people:
                 birth = person.get('birth', 0)
                 b_spl = birth.split('.')
-                if printed_month == b_spl[1]:
+                if printed_month_correct == b_spl[1]:
                     count += 1
                     print(
                         '{:>4}: {}'.format(count, person.get('name', ''))
