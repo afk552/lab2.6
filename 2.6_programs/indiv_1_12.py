@@ -33,16 +33,11 @@ if __name__ == '__main__':
         elif command == "add":
             name = input("Введите фамилию и имя через пробел: ")
             pnumber = input("Введите номер телефона: ")
-            try:
-                birth = input("Введите дату рождения (01.01.2077): ").split('.')
-                birth_dt = dt.datetime(int(birth[2]),
-                                       int(birth[1]),
-                                       int(birth[0])
-                                       )
-            except IndexError:
-                print("Проверьте правильность ввода даты рождения!",
-                      file=sys.stderr)
-                break
+            birth = input("Введите дату рождения (01.01.2077): ").split('.')
+            birth_dt = dt.datetime(int(birth[2]),
+                                   int(birth[1]),
+                                   int(birth[0])
+                                   )
             # Создание словаря
             person = {
                 'name': name,
